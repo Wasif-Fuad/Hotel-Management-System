@@ -1,0 +1,58 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+  <section class="book" id="book">
+
+    <h1 class="heading"> <span>book</span> now </h1>    
+
+    <div class="row">
+        <div class="image">
+            <img src="{% static 'images/Hotel Overview pg.svg' %}" alt="">
+        </div>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="box">
+                
+                <label for="form.check_in.id_for_label">Room</label>
+                {{booking.room.room_number}}
+                <span></span>
+                
+              </div>
+              <div class="box">
+                
+                <label for="form.check_in.id_for_label">From</label>
+                {{booking.check_in}}
+                <span></span>
+                
+              </div>
+              <div class="box">
+                <label for="{{form.check_out.id_for_label}}">To:</label>
+                {{booking.check_out}}
+                <span></span>
+              </div>
+              <div class="box">
+                
+                <label for="form.check_in.id_for_label">Total Bill</label>
+                {{booking.bill}}
+                <span></span>
+                
+              </div>
+            
+            
+              <input type="submit" value="Confirm" class="btn confirmroom">
+              <a href="/" class="btn">Back</a>
+          </form>
+       
+  
+    </div>
+  
+    
+  
+  </section>
+
+    
+{%endblock%}
+ 

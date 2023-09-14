@@ -1,0 +1,16 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+<div class="container  ">
+    <form  method="POST" action="">{%csrf_token%}
+        {{form.as_p}}
+    
+        <input type="submit" class="btn btn-primary" value="Update">
+           
+    
+    </form>
+    </div>
+{%endblock%}

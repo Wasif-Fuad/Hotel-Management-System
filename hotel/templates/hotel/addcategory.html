@@ -1,0 +1,17 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+<center><h2>Add new category</h2></center>
+<div class="container  ">
+    <form  method="POST" action="">{%csrf_token%}
+        {{form.as_p}}
+    
+        <input id="subc" type="submit" class="btn btn-primary" value="Add">
+           
+    
+    </form>
+    </div>
+{%endblock%}

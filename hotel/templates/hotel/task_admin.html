@@ -1,0 +1,76 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+<center><h2>Assign Task to Employee</h2></center>
+<div class="container  ">
+
+<form  method="POST" action="">{%csrf_token%}
+    {{form.as_p}}
+
+    <input type="submit" class="btn btn-primary" value="Assign">
+       
+
+</form>
+</div>
+
+
+<div class="container">
+
+
+    <div class="container mt-5 d-flex justify-content-center">
+        {% if tasks %}
+        <table class="table">
+            <thead class="bg-info text-light">
+            <tr>
+            <th style="width:20%">Staff</th>
+            
+            <th style="width:20%">task</th>
+            <th style="width:20%">Room</th>
+            <th style="width:20%">Deadline</th>
+            <th style="width:20%">Status</th>
+            <th style="width:20%">Action</th>
+
+
+
+            </tr>
+            </thead>
+
+            <tbody text-aligh="center">
+                {% for r in tasks %}
+               
+                <tr class="pt-4">                
+                <td >{{r.user}}</td>
+                
+                <td>{{r.task}}</td>
+                
+                <td>{{r.room}}</td>
+                <td>{{r.deadline}}</td>
+                {%if r.completed%}
+                <td style="text-align:center;">Completed</td>
+                {%else%}
+
+                <td style="text-align:center;">Incomplete</td>
+                {%endif%}
+                <td><a href='' class="btn btn-danger btn-sm">delete</a></td>
+                </tr>
+               
+                {% endfor %}
+                
+            </tbody>
+
+            
+        </table>
+        {% else %}
+        <p class="text-center"> No Room found.. Try something else</p>
+        {% endif %}
+    </div>
+
+
+
+
+</div>
+
+{%endblock%}

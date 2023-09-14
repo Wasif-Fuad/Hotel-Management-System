@@ -1,0 +1,38 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+    <div class="container">
+      <h1>Profile</h1>
+      <form method="post" autocomplete="off">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+       
+       
+      
+        <input type="submit" value="Update" class="btn btn-primary">
+      </form>
+
+
+
+    </div>
+
+
+{%if history%}
+    
+<section class="hotel" style="padding:2rem 9%;">
+
+  <center><h1>Payment Details</h1></center>
+  <form action=""method="POST">{%csrf_token%}
+      {{history.as_p}}
+
+
+    <input type="submit" value="Update" class="btn btn-primary">
+  </form>
+   
+  </section>
+  {%endif%}
+    {%endblock%}

@@ -1,0 +1,38 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+        
+<section class="book" id="book">
+
+    <h1 class="heading"> <span>Show</span> Room </h1>    
+  
+    <div class="row">
+  
+        <div class="image">
+            <img src="{{room.image}}" alt="">
+        </div>
+        <form action="" method="post">
+            <h1 class="mt-4">Room Category: {{room.category}}</h1>
+            <h4>{{room.desc}}</h4>
+            <h3>Capacity: {{room.capacity}} Persons</h3>
+            <h3>Price: {{room.price}}$</h3>
+            
+          <a class="btn booknow " href="{% url 'booking' room.category%}">Book Now</a>
+          <a href="/" class="btn">Back</a>
+          
+      </form>
+  
+    </div>
+  
+    
+  
+  </section>
+  
+  
+
+    
+   
+{%endblock%}

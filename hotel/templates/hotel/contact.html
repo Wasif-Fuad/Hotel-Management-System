@@ -1,0 +1,43 @@
+{% extends 'hotel\base.html'%}
+{% load static %}
+{% load custom_tags %}
+
+  
+{%block content%}
+    
+    
+<section>
+  <!--class="center"-->
+    <div>
+      <h1>Contact Us</h1>
+      <form method="POST" action="">
+        {% csrf_token %}
+
+        <div class="txt_field">
+          {{form.name}}
+          <span></span>
+          <label>Name</label>
+        </div>
+        <div class="txt_field">
+            {{form.email}}
+            <span></span>
+            <label>Email</label>
+          </div>
+          <div class="txt_field">
+            {{form.phone}}
+            <span></span>
+            <label>Phone</label>
+          </div>
+
+          <div class="txt_field">
+            {{form.message}}
+            <span></span>
+            <label>Message</label>
+          </div>
+          <input type="submit" value="Send">
+          
+      </form>
+    </div>
+  </section>
+
+{%endblock%}
